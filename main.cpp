@@ -157,7 +157,6 @@ V remover_ultimo(lista* l) {
     }
     V valor;
     if (l->inicio == l->fim) {
-        // só um elemento
         valor     = l->inicio->valor;
         free(l->inicio);
         l->inicio = NULL;
@@ -278,9 +277,7 @@ int lista_fibonacci(lista* l) {
     int v1 = l->inicio->proximo->valor;
     while (fb < v0) { int tmp = fa + fb; fa = fb; fb = tmp; }
     if (fa != v0 && fb != v0) return 0;
-    // Se v0 == fa, o próximo esperado é fb
     if (fa == v0 && fb != v1) return 0;
-    // Se v0 == fb, o próximo esperado é fa+fb
     if (fb == v0 && (fa + fb) != v1 && v1 != fa) return 0;
     return 1;
 }
